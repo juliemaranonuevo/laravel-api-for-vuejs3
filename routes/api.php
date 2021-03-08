@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix'=>'v1'],function() { 
     Route::group(['prefix'=>'crud'],function() {
+        Route::get('/', 'Crud\UserController@index');
         Route::post('/', 'Crud\UserController@store');
+        Route::get('/search', 'Crud\UserController@search');
     });
 });
